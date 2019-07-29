@@ -408,7 +408,7 @@ open class ExploreCommandBuilder(
     }
 
     @JvmOverloads
-    fun build(cfg: ConfigurationWrapper,
+    open fun build(cfg: ConfigurationWrapper,
               deviceTools: IDeviceTools = DeviceTools(cfg),
               strategyProvider: (ExplorationContext) -> IExplorationStrategy = { ExplorationStrategyPool(this.strategies, this.selectors, it) }, //FIXME is it really still useful to overwrite the eContext instead of the model?
               watcher: List<ModelFeatureI> = defaultReportWatcher(cfg),

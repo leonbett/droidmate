@@ -233,7 +233,7 @@ open class ExploreCommand constructor(private val cfg: ConfigurationWrapper,
 		assert(ret)
 	}
 
-	private suspend fun pullScreenShot(actionId: Int, targetDir: Path, device: IRobustDevice, eContext: ExplorationContext) = withTimeoutOrNull(10000){
+	open suspend fun pullScreenShot(actionId: Int, targetDir: Path, device: IRobustDevice, eContext: ExplorationContext) = withTimeoutOrNull(10000){
 		debugT("image transfer should take no time on main thread", {
 			eContext.imgTransfer.launch {
 				// pull the image from device, store it in the image directory defined in ModelConfig and remove it on device
